@@ -1,0 +1,33 @@
+/app/models/Process/PreProcess.java
+# Created by https://www.gitignore.io/api/lay,playframework
+
+#!! ERROR: lay is undefined. Use list command to see defined gitignore types !!#
+
+### PlayFramework ###
+# Ignore Play! working directory #
+bin/
+/db
+.eclipse
+/logs/
+/project
+/modules
+/target
+tmp/
+test-result
+server.pid
+*.iml
+*.eml
+/dist/
+.cache
+
+### IntelliJ IDEA ###
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+
+app/views/js/result.js
+
+doc/ScreenFlow-High.mp4

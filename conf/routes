@@ -1,0 +1,81 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                             controllers.UserAction.login()
+
+#Entrance of analysis
+
+GET         /history                      controllers.Service.getHistory()
+
+GET         /service                      controllers.UserAction.index()
+
+POST        /service                      controllers.Service.analysis()
+
+GET         /resultJson                   controllers.Service.getResult(url:String)
+
+GET         /userJson                     controllers.Service.getUserInfo(uid:String)
+
+GET         /weiboJson                    controllers.Service.getWeiboInfo(url:String)
+
+GET         /getMap                       controllers.Service.getMap()
+
+# Can use optional value(which means the either /get-optional?user=lizhuoli or /get-optional will do
+
+# API call
+
+# Weibo
+GET         /api/weibo/auth               controllers.AuthAction.weiboAuth()
+
+GET         /api/weibo/message            controllers.Application.getWeiboMessage(url)
+
+GET         /api/weibo/user               controllers.Application.getWeiboUser(uid)
+
+GET         /api/weibo/comment            controllers.Application.getWeiboComment(cid)
+
+GET         /api/weibo/messageList        controllers.Application.getWeiboMessageList(url)
+
+GET         /api/weibo/userList           controllers.Application.getWeiboUserList(uids)
+
+GET         /api/weibo/commentList        controllers.Application.getWeiboCommentList(cids)
+
+GET         /api/weibo/test               controllers.Application.weiboEntryTest(url)
+
+GET         /api/weibo/testId             controllers.Application.weiboEntryIdTest(uid,id)
+
+GET         /api/weibo/id                 controllers.Application.urlToId(url)
+
+GET         /api/weibo/url                controllers.Application.idToUrl(uid,id)
+
+# Twitter
+GET         /api/twitter/auth             controllers.AuthAction.twitterAuth()
+# Account management
+
+GET         /user                         controllers.UserAction.index()
+
+POST        /auth                         controllers.UserAction.authenticate()
+
+POST        /newUser                      controllers.UserAction.newUser()
+
+GET         /valid                        controllers.UserAction.processValidation(id,valideCode)
+
+GET         /sendValideMail               controllers.UserAction.sendValidationMail(id,email)
+
+POST        /sendPswMail                  controllers.UserAction.sendPswMail()
+
+GET         /login                        controllers.UserAction.login()
+
+GET         /register                     controllers.UserAction.register()
+
+GET         /exit                         controllers.UserAction.exit()
+
+GET         /findpsw/setpsw               controllers.UserAction.setPass(email:String)
+
+GET         /findpsw/inputpsw             controllers.UserAction.InputPass(email,valideCode)
+
+GET         /findpsw/inputmail            controllers.UserAction.InputEmail()
+
+GET         /user/admin                   controllers.UserAction.authAdminRender()
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                 controllers.Assets.versioned(path="/public", file: Asset)
